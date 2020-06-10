@@ -1,0 +1,12 @@
+<h1>Votre recherche :</h1>
+<p>Rentrer un film :</p>
+<form action="{% url 'search_film'%}" method="GET">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="OK">
+</form>
+
+
+{% for film in films %}
+{{ film.nom }}
+{% endfor %}
