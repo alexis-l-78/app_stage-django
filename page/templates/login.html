@@ -13,10 +13,11 @@
     <title>SicopStream</title>
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.min.css' %}" />
+
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="{% static '/css/business-casual.css' %}" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}" />
     <!-- Fonts -->
     <linkcol-lg-12 col-md-6 col-sm-6HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -24,17 +25,12 @@
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <![endif]-->    <script src="js/bootstrap.min.js"></script>
+
 <body>
 
-    <div class="brand">SicopStream
-    
-    {% if user.is_authenticated %}
-    <a class="redbutton" href="/logout_request/">Deconnexion</a>
-    {% else %}
-    <a class="redbutton" href="login/">S'identifier</a>
-    {% endif%}
-    </div>
+    <div class="brand">SicopStream</div>
+
     <!-- Navigation -->
     <nav class="navbar navbar-default" role="navigation">
         <div class="container">
@@ -50,10 +46,7 @@
                 <a class="navbar-brand" href="op.html">SicopStream</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div>
-            </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                       
                 <ul class="nav navbar-nav">
                     <li>
                         <a href="/">Accueil</a>
@@ -64,94 +57,46 @@
                     <li>
                         <a href="about.html">Séries</a>
                     </li>
-                    <div class="topnav">
-                            <div class="search-container">
-                                <form method="GET" action="{% url 'search_film' %}">
-                                {% csrf_token %}
-                                {{ form }}
-                                <input type="text" placeholder="Search.." name="film">
-                                <button type="submit"><i class="fa fa-search"></i></button>
-                                </form>
-                            </div>
-                    </div>
-                </ul>                
+                    
+                </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
     </nav>
 
-    
-    <div class="container">
-
+        <div class="container">
         <div class="row">
-            <div class="box">
-                <div class="col-lg-12 text-center">
-                    <div id="carousel-example-generic" class="carousel slide">
-                        <!-- Indica<div class="box"> lass="item active">
-                                <img class="img-responsive img-full" src="img/slide-1.jpg" alt="">
-                            </div>
-                            <div class="item">
-                                <img class="img-responsive img-full" src="img/slide-2.jpg" alt="">
-                            </div>
-                            <div class="item">
-                                <img class="img-responsive img-full" src="img/slide-3.jpg" alt="">
-                            </div>
-                        </div>
-
-                        <!-- Controls -->
-                        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                            <span class="icon-prev"></span>
-                        </a>
-                        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                            <span class="icon-next"></span>
-                        </a>
-                    </div>
-                    
-                    <h2>Films, séries, documentaire et encore plus et tout ça sans limite</h2>
-                
-                    <h1 class="brand-name">SicopStream</h1>
-                    <hr class="tagline-divider">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-5">
+            <div class="card-body">
+                <h5 class="card-title text-center">Connexion</h5>
+                <form class="form-signin">
+                <div class="form-label-group">
+                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                    <label for="inputEmail">Pseudo</label>
                 </div>
-            </div>
-        </div>
 
-    <div class="container text-center">
-        <div class="row">
-            <div class="box">   
-                <form action="video/">
-                <button class="video-button" href="video/">Soumettre une vidéo</button><br>
-                <p>Vous pouvez soumettre une vidéo afin de la partager avec tout le monde<p>
-                <p>Cette vidéo sera analyser avant d'être mise en ligne<p>
+                <div class="form-label-group">
+                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                    <label for="inputPassword">Mot de passe</label>
+                </div>
+
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                    <label class="custom-control-label" for="customCheck1">Se souvenir de moi</label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Connexion</button>
+                <hr class="my-4">
+                <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Se connecter avec Google</button>
+                <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Se connecter avec Facebook</button>
                 </form>
+                Pas encore inscrit ? <a href="/register" target="blank"><strong>Inscrivez-vous</strong></a>!
+            </div>
             </div>
         </div>
-    </div>
-
-        <div class="row">
-            <div class="box">
-                <div class="col-lg-12 col-md-6 col-sm-6">
-                    <hr>
-                    <h2 class="intro-text text-center">Regardez vos vidéos
-                        <strong>où vous voulez</strong>
-                    </h2>
-                    <hr>
-                    <img class="img-responsive img-border img-left" src='../static/img/pc.jpg' alt="">
-                    <hr class="visible-xs">
-                    <h2>Regardez enfin vos vidéos, films et séries où que vous soyez. </h2>
-                    <h2>Télécharger afin de regardez hors connexion n'importe où.</h2>
-                    <h2>En accès illimité avec votre abonnement<h2> 
-                    <h1><strong>Où que vous soyez</strong></h1>
-                    <h2>Sur tout vos appareils, TV, Tablette, Smartphones, PC.</h2>
-                </div>
-            </div>
         </div>
-
     </div>
-    <!-- /.container -->
-</body>
-
-
 
 
 <!--footer starts from here-->
@@ -162,7 +107,7 @@
 <h5 class="headin5_amrc col_white_amrc pt2">Nous contactez</h5>
 <!--headin5_amrc-->
 <p class="mb10">Contactez nous en cas de problèmes, nous répondrons à toute vos questions dans les plus brefs délais</p>
-<p>Service client <br> Du lundi au vendredi <br> de 10h à 19h     |<i class="fa fa-phone"></i>  01 30 20 14 47  </p>
+<p>Service client <br> Du lundi au vendredi <br> de 10h à 19h|<i class="fa fa-phone"></i>  01 30 20 14 47  </p>
 <p><i class="fa fa fa-envelope"></i> sicopstream.support@gmail.com  </p>
 
 
@@ -222,11 +167,15 @@
 
 </footer>
 
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
     <!-- jQuery -->
-    <script src="{% static '../static/js/jquery.js' %}"></script>
+    <script src="{% static '/js/jquery.js' %}"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="{% static '../static/js/bootstrap.min.js' %}"></script>
-    
+    <script src="{% static '/js/bootstrap.min.js' %}"></script>
     <!-- Script to Activate the Carousel -->
     <script>
     $('.carousel').carousel({
@@ -234,6 +183,6 @@
     })
     </script>
 
-
+</body>
 
 </html>

@@ -20,15 +20,16 @@ from page import views
 
 
 urlpatterns = [
-    path('', views.index),
+    path('', views.op),
     path('index/', views.send_datas),
     path('index/', views.send_actor),
     path('page/', include('page.urls')),
     path('admin/', admin.site.urls),
-    path('display_movie/', views.display_movie),
     path('search/', views.search),
-    path('op/', views.op),
-    
+    path('register/', views.register),
+    path('login/', views.login_request),
+    path('logout_request/', views.logout_request),
+    path('contact/', views.contact),   
 ]
 
 if settings.DEBUG:

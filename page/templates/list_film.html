@@ -1,0 +1,11 @@
+<ul>
+    {% for film in temp %}
+        <div class="col-lg-4 text-center">
+            <a href="/">
+                <img class="img-responsive" src="{{ film.picture }}" alt="{{ film.nom }}">
+            </a>
+            <h3><a href="/">{{ film.nom }}</a></h3>
+        </div>
+        <li>{{ film }}</li>
+    {% endfor %}
+</ul>
